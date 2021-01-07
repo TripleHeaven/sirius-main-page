@@ -2,7 +2,8 @@ import styled from "@emotion/styled";
 import { useState } from "react";
 import SearchBar from "./SearchBar";
 import CurrentUser from "./CurrentUser";
-
+import SmallCard from "./SmallCard";
+import { CardContentT } from "../typesTS/CardContent";
 // import styled from "@emotion/styled/macro";
 
 export default function RightSection() {
@@ -21,7 +22,15 @@ export default function RightSection() {
     height: 43px;
     margin-top: 30px;
   `;
-
+  const [cardContent] = useState<CardContentT[]>([
+    {
+      id: 11,
+      picAdress: "/cardPics/1.png",
+      label: "Должников:",
+      text: "12",
+      detailInfo: "(1 850,5 руб)",
+    },
+  ]);
   // functionality
   // const [searchText, setSearchText] = useState<string>("Поиск клиента");
   return (
@@ -30,6 +39,7 @@ export default function RightSection() {
         <SearchBar></SearchBar>
         <CurrentUser></CurrentUser>
       </TopBar>
+      <SmallCard card={cardContent[0]}></SmallCard>
     </MainBlock>
   );
 }
