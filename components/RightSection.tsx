@@ -4,6 +4,8 @@ import SearchBar from "./SearchBar";
 import CurrentUser from "./CurrentUser";
 import SmallCard from "./SmallCard";
 import { CardContentT } from "../typesTS/CardContent";
+import { PupilStatT } from "../typesTS/PupilStatT";
+import BigCard from "./BigCard";
 // import styled from "@emotion/styled/macro";
 
 export default function RightSection() {
@@ -31,6 +33,14 @@ export default function RightSection() {
       detailInfo: "(1 850,5 руб)",
     },
   ]);
+  const [pupilStatElem] = useState<PupilStatT>({
+    quantity: 250,
+    lastWeek: 25,
+    withoutAbo: 150,
+    inactive: 25,
+    dayAdded: 50,
+    picAdress: "/bigCardPic.png",
+  });
   // functionality
   // const [searchText, setSearchText] = useState<string>("Поиск клиента");
   return (
@@ -40,6 +50,7 @@ export default function RightSection() {
         <CurrentUser></CurrentUser>
       </TopBar>
       <SmallCard card={cardContent[0]}></SmallCard>
+      <BigCard pupilStatElem={pupilStatElem}></BigCard>
     </MainBlock>
   );
 }
