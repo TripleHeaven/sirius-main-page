@@ -13,6 +13,7 @@ import { rgba } from "emotion-rgba";
 
 const activeColor = "#EDF0F5";
 const VerticalLine = styled.div`
+  display: none;
   width: 3px; /* Line width */
   background-color: #2e71f3; /* Line color */
   height: 41px; /* Override in-line if you want specific height. */
@@ -47,13 +48,16 @@ const VerticalLine = styled.div`
 `;
 const CategoryItem = styled.div`
   height: 45px;
-  background-color: ${rgba(activeColor, 1)};
+  background-color: #fff;
   width: 100%;
   display: grid;
   grid-template-columns: 50px auto;
   grid-template-rows: 45px;
   ${VerticalLine}:hover & {
     display: none;
+  }
+  &:hover {
+    background-color: ${rgba(activeColor, 1)};
   }
 `;
 // active inactiove above
@@ -76,14 +80,16 @@ const TextItem = styled.p`
   color: ${rgba(inactiveColor, 0.5)};
 `;
 const IconItem = styled.img`
-  margin-left: 28px;
+  // margin-left: 28px;
+  float: right;
+  margin-right: 4px;
   margin-top: 14px;
   height: 16px;
 `;
 const Wrapper = styled.div`
   width: 100%;
   & ${CategoryItem}:hover ${VerticalLine} {
-    display: none;
+    display: block;
   }
 `;
 export default function Category({ category }: { category: CategoryT }) {

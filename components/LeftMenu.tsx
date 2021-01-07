@@ -32,7 +32,7 @@ const HorizontalLine = styled.hr`
 
 export default function LeftMenu() {
   // styles
-  const [categories] = useState([{ id: 1, pic: "none", text: "test" }]);
+
   return (
     <LeftMenuWindow>
       {/* Top bar pic and back icon */}
