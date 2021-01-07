@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 
 import LeftMenu from "./LeftMenu";
+import RightSection from "./RightSection";
+// import SearchBar from "./SearchBar";
 // import styled from "@emotion/styled/macro";
 
 const MainWindow = styled.div`
@@ -11,12 +13,17 @@ const MainWindow = styled.div`
   margin-left: auto;
   margin-right: auto;
 `;
+const TopBar = styled.div`
+  display: grid;
+  grid-template-columns: auto auto;
+`;
 export default function MainPage() {
   // styles
 
   return (
     <MainWindow>
       <LeftMenu></LeftMenu>
+      <RightSection></RightSection>
     </MainWindow>
   );
 }
