@@ -52,7 +52,8 @@ export default function RightSection() {
       </TopBar>
       <SmallCard card={cardContent[0]}></SmallCard>
       <BigCard pupilStatElem={pupilStatElem}></BigCard>
-      <Graph></Graph>
+      <Graph picAdress={"/yaLogo.png"}></Graph>
+      <Graph picAdress={"/palInfo.png"}></Graph>
     </MainBlock>
   );
 }

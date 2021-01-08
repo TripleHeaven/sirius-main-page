@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 // import styled from "@emotion/styled/macro";
 
-export default function LeftMenu() {
+export default function Graph({ picAdress }: { picAdress: string }) {
   // styles
   const [chartData, setChartData] = useState({});
-
+  const [currentIncome, setIncome] = useState(0);
   const chart = () => {
     const getRandomInt = (min, max) => {
       min = Math.ceil(min);
@@ -16,9 +16,12 @@ export default function LeftMenu() {
     };
     const generateRandomData = () => {
       let toReturn = [];
+      let incomeSum = 0;
       for (let i = 0; i < 7; i++) {
         toReturn.push(getRandomInt(1000, 6000));
+        incomeSum += toReturn[i];
       }
+      setIncome(incomeSum);
       return toReturn;
     };
     setChartData({
@@ -49,11 +52,21 @@ export default function LeftMenu() {
       ],
     });
   };
-  const Container = styled.div`
+  const GraphContainer = styled.div`
     height: 200px;
     width: 560px;
+    margin-left: 10px;
+    margin-top: 18px;
     background: #fff;
     z-index: 0;
+  `;
+  const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 575px;
+    height: 315px;
+    background: #fff;
+    font-family: "Jost";
   `;
   const HidingBlock = styled.div`
     width: 565px;
@@ -65,13 +78,72 @@ export default function LeftMenu() {
   const MainBlock = styled.div`
     width: 600px;
   `;
-
+  const InfoContainer = styled.div`
+    display: grid;
+    padding-left: 20px;
+    padding-top: 20px;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+  `;
+  const BankPic = styled.img`
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    display: flex;
+    margin-left: auto;
+    margin-right: 20px;
+  `;
+  const IncomeLabel = styled.div`
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.5);
+  `;
+  const IncomeSize = styled.div`
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: flex;
+  `;
+  const IncomeNumber = styled.div`
+    font-size: 25px;
+  `;
+  const Rub = styled.div`
+    margin-top: 8px;
+    margin-left: 5px;
+    font-size: 18px;
+  `;
+  const LittlePic = styled.img`
+    margin-top: 12px;
+    margin-left: 3px;
+    height: 20px;
+  `;
+  const formatIncome = () => {
+    return (
+      currentIncome.toString().slice(0, 2) +
+      " " +
+      currentIncome.toString().slice(2, currentIncome.toString().length)
+    );
+  };
   useEffect(() => {
     chart();
   }, []);
   return (
-    <MainBlock>
-      <Container>
+    <Container>
+      <InfoContainer>
+        <IncomeLabel>Выручка:</IncomeLabel>
+        <IncomeSize>
+          <IncomeNumber>{formatIncome()}</IncomeNumber>
+          <Rub>руб</Rub>
+          <LittlePic src="/lilIncrease.png"></LittlePic>
+        </IncomeSize>
+        <BankPic src={picAdress}></BankPic>
+      </InfoContainer>
+      <GraphContainer>
         <Line
           data={chartData}
           options={{
@@ -152,7 +224,7 @@ export default function LeftMenu() {
         >
           {" "}
         </Line>
-      </Container>
-    </MainBlock>
+      </GraphContainer>
+    </Container>
   );
 }
