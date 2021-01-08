@@ -6,6 +6,7 @@ import SmallCard from "./SmallCard";
 import { CardContentT } from "../typesTS/CardContent";
 import { PupilStatT } from "../typesTS/PupilStatT";
 import BigCard from "./BigCard";
+import Graph from "./Graph";
 // import styled from "@emotion/styled/macro";
 
 export default function RightSection() {
@@ -51,6 +52,7 @@ export default function RightSection() {
       </TopBar>
       <SmallCard card={cardContent[0]}></SmallCard>
       <BigCard pupilStatElem={pupilStatElem}></BigCard>
+      <Graph></Graph>
     </MainBlock>
   );
 }
