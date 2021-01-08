@@ -67,6 +67,7 @@ export default function Graph({ picAdress }: { picAdress: string }) {
     height: 315px;
     background: #fff;
     font-family: "Jost";
+    margin-top: 8px;
   `;
   const HidingBlock = styled.div`
     width: 565px;
@@ -129,102 +130,133 @@ export default function Graph({ picAdress }: { picAdress: string }) {
       currentIncome.toString().slice(2, currentIncome.toString().length)
     );
   };
+  const MainContainer = styled.div`
+    margin-top: 28px;
+  `;
   useEffect(() => {
     chart();
   }, []);
+  const MenuBlock = styled.div`
+    display: flex;
+    font-family: "Jost";
+    font-size: 12px;
+    font-weight: 500;
+    width: 37%;
+    justify-content: space-between;
+  `;
+  const OptionBlock = styled.div`
+    display: flex;
+    border: solid;
+    padding: 12px;
+    border-radius: 2px;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.3);
+    &:hover {
+      color: black;
+      background: #fff;
+    }
+  `;
   return (
-    <Container>
-      <InfoContainer>
-        <IncomeLabel>Выручка:</IncomeLabel>
-        <IncomeSize>
-          <IncomeNumber>{formatIncome()}</IncomeNumber>
-          <Rub>руб</Rub>
-          <LittlePic src="/lilIncrease.png"></LittlePic>
-        </IncomeSize>
-        <BankPic src={picAdress}></BankPic>
-      </InfoContainer>
-      <GraphContainer>
-        <Line
-          data={chartData}
-          options={{
-            responsive: true,
-            maintainAspectRatio: false,
-            tooltips: {
-              callbacks: {
-                title: function (tooltipItem, data) {
-                  return (
-                    "Выручка за " +
-                    data["labels"][tooltipItem[0]["index"]] +
-                    ":"
-                  );
+    <MainContainer>
+      <MenuBlock>
+        <OptionBlock>День</OptionBlock>
+        <OptionBlock>Неделя</OptionBlock>
+        <OptionBlock>Месяц</OptionBlock>
+      </MenuBlock>
+      <Container>
+        <InfoContainer>
+          <IncomeLabel>Выручка:</IncomeLabel>
+          <IncomeSize>
+            <IncomeNumber>{formatIncome()}</IncomeNumber>
+            <Rub>руб</Rub>
+            <LittlePic src="/lilIncrease.png"></LittlePic>
+          </IncomeSize>
+          <BankPic src={picAdress}></BankPic>
+        </InfoContainer>
+        <GraphContainer>
+          <Line
+            data={chartData}
+            options={{
+              responsive: true,
+              maintainAspectRatio: false,
+              tooltips: {
+                callbacks: {
+                  title: function (tooltipItem, data) {
+                    return (
+                      "Выручка за " +
+                      data["labels"][tooltipItem[0]["index"]] +
+                      ":"
+                    );
+                  },
+                  label: function (tooltipItem, data) {
+                    return (
+                      data["datasets"][0]["data"][tooltipItem["index"]] + " руб"
+                    );
+                  },
                 },
-                label: function (tooltipItem, data) {
-                  return (
-                    data["datasets"][0]["data"][tooltipItem["index"]] + " руб"
-                  );
-                },
+                backgroundColor: "#FFF",
+                titleFontFamily: "Jost",
+                titleFontSize: 10,
+                titleFontStyle: "normal",
+                titleFontColor: "rgba(0,0,0,0.4)",
+                titleFontWidth: 100,
+                bodyFontColor: "#000",
+                bodyFontSize: 12,
+                bodyFontFamily: "Jost",
+                displayColors: false,
+                xPadding: 13,
+                yPadding: 13,
+                cornerRadius: 0,
               },
-              backgroundColor: "#FFF",
-              titleFontFamily: "Jost",
-              titleFontSize: 10,
-              titleFontStyle: "normal",
-              titleFontColor: "rgba(0,0,0,0.4)",
-              titleFontWidth: 100,
-              bodyFontColor: "#000",
-              bodyFontSize: 12,
-              bodyFontFamily: "Jost",
-              displayColors: false,
-              xPadding: 13,
-              yPadding: 13,
-              cornerRadius: 0,
-            },
-            legend: { display: false },
-            scales: {
-              xAxes: [
-                {
-                  ticks: {
-                    display: true,
-                    drawBorder: false,
-                    fontSize: 12,
-                    padding: 10,
-                    fontFamily: "Jost",
-                  },
-                  gridLines: {
-                    display: false,
-                    drawBorder: false,
-                  },
-                },
-              ],
-              yAxes: [
-                {
-                  ticks: {
-                    display: true,
-                    padding: 10,
-                    fontSize: 12,
-                    callback: function (value, index, values) {
-                      if (value > 5000) {
-                        return "";
-                      } else {
-                        return value / 1000 + " тыс. ₽";
-                      }
+              legend: { display: false },
+              scales: {
+                xAxes: [
+                  {
+                    ticks: {
+                      display: true,
+                      drawBorder: false,
+                      fontSize: 12,
+                      padding: 10,
+                      fontFamily: "Jost",
                     },
-                    maxTicksLimit: 10,
-                    stepSize: 1000,
-                    fontFamily: "Jost",
+                    gridLines: {
+                      display: false,
+                      drawBorder: false,
+                    },
                   },
-                  gridLines: {
-                    display: true,
-                    drawBorder: false,
-                    z: -100,
+                ],
+                yAxes: [
+                  {
+                    ticks: {
+                      display: true,
+                      padding: 10,
+                      fontSize: 12,
+                      callback: function (value, index, values) {
+                        if (value > 5000) {
+                          return "";
+                        } else {
+                          return value / 1000 + " тыс. ₽";
+                        }
+                      },
+                      maxTicksLimit: 10,
+                      stepSize: 1000,
+                      fontFamily: "Jost",
+                    },
+                    gridLines: {
+                      display: true,
+                      drawBorder: false,
+                      z: -100,
+                    },
                   },
-                },
-              ],
-            },
-          }}
-        >
-          {" "}
-        </Line>
-      </GraphContainer>
-    </Container>
+                ],
+              },
+            }}
+          >
+            {" "}
+          </Line>
+        </GraphContainer>
+      </Container>
+    </MainContainer>
   );
 }

@@ -10,22 +10,24 @@ const LeftMenuWindow = styled.div`
   background: #ffffff;
   display: flex;
   flex-direction: column;
-  position: absolute;
   margin: 0;
 `;
+
 const Logo = styled.img`
   height: 69px;
-  position: absolute;
-  top: 30px;
-  left: 45px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -14px;
 `;
 const Hide = styled.img`
-  position: absolute;
-  top: 30px;
-  left: 176px;
+  width: 13px;
+  height: 12px;
+  margin-left: auto;
+  margin-right: 20px;
+  margin-top: 32px;
 `;
 const HorizontalLine = styled.hr`
-  margin-top: 130px;
+  margin-top: 30px;
   opacity: 0.2;
   width: 100%;
 `;
@@ -36,8 +38,10 @@ export default function LeftMenu() {
   return (
     <LeftMenuWindow>
       {/* Top bar pic and back icon */}
-      <Logo src="/logo.png"></Logo>
+      {/* <LogoContainer> */}
       <Hide src="/hide.png"></Hide>
+      <Logo src="/logo.png"></Logo>
+      {/* </LogoContainer> */}
       <HorizontalLine></HorizontalLine>
       <CategoryList></CategoryList>
     </LeftMenuWindow>

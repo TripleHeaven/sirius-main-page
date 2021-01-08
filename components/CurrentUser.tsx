@@ -7,16 +7,14 @@ import { CurrentUserT } from "../typesTS/CurrentUserT";
 export default function CurrentUser() {
   // styles
   const Container = styled.div`
-    width: 208px;
-
+    width: 210px;
     display: flex;
     justify-content: space-between;
     height: 43px;
     margin-left: auto;
-    margin-right: 32px;
+    margin-right: 28px;
     vertical-align: middle;
     text-align: center;
-
     font-family: "Jost", sans-serif;
     font-size: 11px;
   `;
@@ -27,8 +25,8 @@ export default function CurrentUser() {
   `;
   const VerticalLine = styled.div`
     width: 1px; /* Line width */
-    background-color: rgba(0, 0, 0, 0.1); /* Line color */
-    height: 41px; /* Override in-line if you want specific height. */
+    background-color: rgba(0, 0, 0, 0.1);
+    height: 41px;
   `;
 
   const UserAvatar = styled.img`
@@ -38,7 +36,9 @@ export default function CurrentUser() {
     border-radius: 50%;
   `;
   const UserName = styled.span`
-    margin-top: 15px;
+    margin-top: 14px;
+
+    font-size: 12px;
   `;
   // functionality
   // user

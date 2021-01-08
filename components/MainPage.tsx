@@ -12,6 +12,7 @@ const MainWindow = styled.div`
   display: flex;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 50px;
 `;
 const TopBar = styled.div`
   display: grid;

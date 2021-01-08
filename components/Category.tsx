@@ -70,7 +70,7 @@ const TextSection = styled.div`
   grid-column-end: 3;
   font-family: "Jost", sans-serif;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 13px;
 `;
 const inactiveColor = "#000";
 
@@ -83,7 +83,7 @@ const IconItem = styled.img`
   // margin-left: 28px;
   float: right;
   margin-right: 4px;
-  margin-top: 14px;
+  margin-top: 17px;
   height: 16px;
 `;
 const Wrapper = styled.div`

@@ -9,7 +9,7 @@ const Categories = styled.div`
   display: flex;
   flex-direction: column;
   background-color: black;
-  margin-top: 17px;
+  margin-top: 15px;
 `;
 
 export default function CategoryList() {

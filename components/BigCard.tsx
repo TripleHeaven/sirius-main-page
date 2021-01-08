@@ -13,12 +13,14 @@ export default function BigCard({
   // styles
 
   const Container = styled.div`
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
     display: flex;
     flex-direction: column;
     max-width: 279px;
-    margin-top: 50px;
     height: 230px;
-    margin-left: 150px;
     background: #fff;
   `;
   const BasicInfoContainer = styled.div`

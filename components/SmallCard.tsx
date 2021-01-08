@@ -8,8 +8,6 @@ export default function SmallCard({ card }: { card: CardContentT }) {
   // styles
 
   const Container = styled.div`
-    margin-top: 50px;
-    margin-left: 150px;
     display: grid;
     width: 278px;
     height: 105px;

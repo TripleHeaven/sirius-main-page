@@ -15,17 +15,19 @@ export default function SearchBar() {
     border: none;
     background-image: url("searchPic.png");
     background-repeat: no-repeat;
-    background-position: 15px 15px;
+    background-position: 15px 14px;
     padding-left: 36px;
+
     font-family: "Jost", sans-serif;
-    font-size: 11px;
+    font-size: 12px;
     color: rgba(0, 0, 0, 0.5);
     &:focus {
       outline: none;
     }
   `;
   const SearchPic = styled.img`
-    height: 5px;
+    height: 6px;
+    margin
   `;
   // functionality
   return (

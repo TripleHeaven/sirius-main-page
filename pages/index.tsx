@@ -16,6 +16,7 @@ export default function Home() {
           body {
             margin: 0;
             padding: 0;
+            background: #f1f4f8;
           }
         `}
       />
