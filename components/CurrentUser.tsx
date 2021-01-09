@@ -44,11 +44,11 @@ export default function CurrentUser() {
   // user
   const [currentUser] = useState<CurrentUserT>({
     userName: "Alexander Gerasimuk",
-    userPicAdress: "/userAvatar.jpg",
+    userPicAdress: "/topBarPics/userAvatar.jpg",
   });
   return (
     <Container>
-      <NotificationImage src="notification.png"></NotificationImage>
+      <NotificationImage src="/topBarPics/notification.png"></NotificationImage>
       <VerticalLine></VerticalLine>
 
       <UserName>{currentUser.userName}</UserName>

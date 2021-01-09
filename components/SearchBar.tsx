@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { useState } from "react";
 
 // import styled from "@emotion/styled/macro";
 
@@ -13,7 +12,7 @@ export default function SearchBar() {
     height: 43px;
     border-radius: 67px;
     border: none;
-    background-image: url("searchPic.png");
+    background-image: url("/topBarPics/searchPic.png");
     background-repeat: no-repeat;
     background-position: 15px 14px;
     padding-left: 36px;
@@ -24,10 +23,6 @@ export default function SearchBar() {
     &:focus {
       outline: none;
     }
-  `;
-  const SearchPic = styled.img`
-    height: 6px;
-    margin
   `;
   // functionality
   return (

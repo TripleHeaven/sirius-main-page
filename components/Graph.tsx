@@ -9,7 +9,7 @@ export default function Graph({ picAdress }: { picAdress: string }) {
   const [chartData, setChartData] = useState({});
   const [currentIncome, setIncome] = useState(0);
   const chart = () => {
-    const getRandomInt = (min, max) => {
+    const getRandomInt = (min: number, max: number): number => {
       min = Math.ceil(min);
       max = Math.floor(max);
       return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
@@ -68,16 +68,6 @@ export default function Graph({ picAdress }: { picAdress: string }) {
     background: #fff;
     font-family: "Jost";
     margin-top: 8px;
-  `;
-  const HidingBlock = styled.div`
-    width: 565px;
-    height: 225px;
-    background: #fff;
-    margin-top: -300px;
-    z-index: 100;
-  `;
-  const MainBlock = styled.div`
-    width: 600px;
   `;
   const InfoContainer = styled.div`
     display: grid;
@@ -170,7 +160,7 @@ export default function Graph({ picAdress }: { picAdress: string }) {
           <IncomeSize>
             <IncomeNumber>{formatIncome()}</IncomeNumber>
             <Rub>руб</Rub>
-            <LittlePic src="/lilIncrease.png"></LittlePic>
+            <LittlePic src="/graphPics/lilIncrease.png"></LittlePic>
           </IncomeSize>
           <BankPic src={picAdress}></BankPic>
         </InfoContainer>
