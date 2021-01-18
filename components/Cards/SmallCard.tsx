@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
-import { CardContentT } from "../typesTS/CardContent";
+import { CardContentT } from "../../typesTS/CardContent";
 
 // import styled from "@emotion/styled/macro";
 

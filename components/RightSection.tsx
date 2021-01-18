@@ -28,8 +28,6 @@ export default function RightSection() {
         <SearchBar></SearchBar>
         <CurrentUser></CurrentUser>
       </TopBar>
-      {/* <SmallCard card={cardContent[0]}></SmallCard>
-      <BigCard pupilStatElem={pupilStatElem}></BigCard> */}
       <GraphSection></GraphSection>
       <CardsSection></CardsSection>
     </MainBlock>

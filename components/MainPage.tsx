@@ -14,10 +14,6 @@ const MainWindow = styled.div`
   margin-right: auto;
   margin-top: 50px;
 `;
-const TopBar = styled.div`
-  display: grid;
-  grid-template-columns: auto auto;
-`;
 export default function MainPage() {
   // styles
 
